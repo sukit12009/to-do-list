@@ -19,6 +19,10 @@ const TodoList: React.FC = () => {
         setTodos(savedTodos);
     }, []);
 
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos]);
+
     const addTodo = () => {
         if (!input.trim()) return;
         const newTodo: TodoItem = {
